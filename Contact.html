@@ -24,19 +24,42 @@
         padding: 1px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
             transition: all 0.5s ease;
-            
+      }
             section:hover{
-            background: white;
+            background-color: white;
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
             transition: all 0.5s ease;
+            }
+            .fblogo {
+	            background: url('icon.jpg') no-repeat -36px -36px;
+                background-size: 664px 180px;
+	            width: 49px;
+	            height: 50px;
+                transition: all 0.5s ease;
+            }
+            .fblogo:hover {
+                transform: translateY(5px);
+            }
+            ::selection {
+                background-color: darkblue;
+                color: white;
+            }
+            a[href^="https://"] {
+                color: red;
+            }
+            a[href^="http://"] {
+                color: red;
+            }
         </style>
       </nav>
 <section id="contact">
     <h2>Contact Us</h2>
     <p>Email <a href="mailto:reillylourne.estrellado@smc.pshs.">reillylourne.estrellado@smc.pshs.edu.ph
     </a></p>
+    <a href="https://www.facebook.com/"><div class="fblogo"></div></a>
+    <a href="https://www.facebook.com/">My Facebook Profile</a>
     <p>Or call us at: 09338596073</p>
     </section>
       
