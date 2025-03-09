@@ -40,26 +40,50 @@ function loadQuestion() {
     quizData[currentQuestion].choices.forEach((choice, index) => {
         const button = document.createElement("button");
         button.innerText = choice;
-        button.onclick = () => checkAnswer(index);
+        button.classList.add("quiz-button");
+        button.addEventListener("click", () => checkAnswer(index, button));
         quizContainer.appendChild(button);
     });
 }
 
-function checkAnswer(selected) {
+function checkAnswer(selected, button) {
+    const buttons = document.querySelectorAll(".quiz-button");
+    buttons.forEach(btn => btn.disabled = true);
+
     if (selected === quizData[currentQuestion].answer) {
+        button.classList.add("correct");
         score++;
-    }
-    currentQuestion++;
-    if (currentQuestion < quizData.length) {
-        loadQuestion();
     } else {
-        showResults();
+        button.classList.add("incorrect");
     }
+
+    setTimeout(() => {
+        currentQuestion++;
+        if (currentQuestion < quizData.length) {
+            loadQuestion();
+        } else {
+            showResults();
+        }
+    }, 1000);
 }
 
 function showResults() {
     const quizContainer = document.getElementById("quiz");
     quizContainer.innerHTML = `<h2>Your Score: ${score}/${quizData.length}</h2>`;
+
+    const restartButton = document.createElement("button");
+    restartButton.innerText = "Restart Quiz";
+    restartButton.classList.add("quiz-button");
+    restartButton.addEventListener("click", restartQuiz);
+    quizContainer.appendChild(restartButton);
 }
 
-document.addEventListener("DOMContentLoaded", loadQuestion);
+function restartQuiz() {
+    currentQuestion = 0;
+    score = 0;
+    loadQuestion();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    loadQuestion();
+});
