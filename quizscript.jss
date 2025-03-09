@@ -37,11 +37,16 @@ function loadQuestion() {
     questionEl.innerText = quizData[currentQuestion].question;
     quizContainer.appendChild(questionEl);
 
-    quizData[currentQuestion].choices.forEach((choice, index) => {
+    
+    const shuffledChoices = quizData[currentQuestion].choices
+        .map((choice, index) => ({ choice, index })) 
+        .sort(() => Math.random() - 0.5); 
+
+    shuffledChoices.forEach(({ choice, index }) => {
         const button = document.createElement("button");
         button.innerText = choice;
         button.classList.add("quiz-button");
-        button.addEventListener("click", () => checkAnswer(index, button));
+        button.addEventListener("click", () => checkAnswer(index, button)); 
         quizContainer.appendChild(button);
     });
 }
@@ -77,6 +82,17 @@ function showResults() {
     restartButton.addEventListener("click", restartQuiz);
     quizContainer.appendChild(restartButton);
 }
+
+function restartQuiz() {
+    currentQuestion = 0;
+    score = 0;
+    loadQuestion();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    loadQuestion();
+});
+
 
 function restartQuiz() {
     currentQuestion = 0;
