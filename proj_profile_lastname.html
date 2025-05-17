@@ -3,27 +3,32 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Your Profile - HelpDHungry</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>User Profile</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h1 { color: #4CAF50; }
+        ul { list-style: none; padding: 0; }
+        li { margin-bottom: 10px; }
+        a { color: #4CAF50; text-decoration: none; }
+    </style>
 </head>
 <body>
-    <header>
-        <img src="logo.png" alt="HelpDHungry Logo" class="logo" />
-        <h1>Welcome to HelpDHungry!</h1>
-    </header>
-    <main>
-        <section class="profile-section">
-            <h2>Your Profile</h2>
-            <ul>
-                <li><strong>First Name:</strong> <span id="profileFirstName"></span></li>
-                <li><strong>Last Name:</strong> <span id="profileLastName"></span></li>
-                <li><strong>Email Address:</strong> <span id="profileEmail"></span></li>
-                <li><strong>Sex:</strong> <span id="profileSex"></span></li>
-                <li><strong>Why I support this campaign:</strong> <span id="profileSupportReason"></span></li>
-            </ul>
-            <a href="proj_signup_lastname.html" class="back-link">Back to Signup</a>
-        </section>
-    </main>
-    <script src="script.js"></script>
+    <h1>Your Profile</h1>
+    <ul>
+        <li><strong>First Name:</strong> <span id="firstName"></span></li>
+        <li><strong>Last Name:</strong> <span id="lastName"></span></li>
+        <li><strong>Sex:</strong> <span id="sex"></span></li>
+        <li><strong>Email:</strong> <span id="email"></span></li>
+        <li><strong>Why you support:</strong> <span id="supportReason"></span></li>
+    </ul>
+    <a href="signup.html">Back to Signup</a>
+
+    <script>
+        document.getElementById('firstName').textContent = localStorage.getItem('firstName') || 'N/A';
+        document.getElementById('lastName').textContent = localStorage.getItem('lastName') || 'N/A';
+        document.getElementById('sex').textContent = localStorage.getItem('sex') || 'N/A';
+        document.getElementById('email').textContent = localStorage.getItem('email') || 'N/A';
+        document.getElementById('supportReason').textContent = localStorage.getItem('supportReason') || 'N/A';
+    </script>
 </body>
 </html>
