@@ -53,7 +53,7 @@ if (document.getElementById('signupForm')) {
         localStorage.setItem('supportReason', supportReason);
 
         
-        window.location.href = 'proj_profile_lastname.html';
+        window.location.href = proj_profile_lastname.html;
     });
 }
 
