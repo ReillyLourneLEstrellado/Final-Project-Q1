@@ -1,24 +1,21 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>HelpDHungry</title>
     <style>
-         body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 20px;
-
-    
-    background-image: url(background.jpeg); 
-    background-repeat: no-repeat;            
-    background-position: center center;     
-    background-attachment: fixed;              
-    background-size: cover;                    
-             }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            background-image: url('background.jpeg');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            background-size: cover;
+        }
         header {
             background-color: lightyellow;
             color: blue;
@@ -27,33 +24,34 @@
         }
         nav {
             margin: 20px 0;
+            text-align: center;
         }
         nav a {
             margin: 0 15px;
             text-decoration: none;
             color: #4CAF50;
+            font-weight: bold;
+        }
+        nav a:hover {
+            background-color: orange;
+            font-size: 125%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
         }
         section:hover {
             background: white;
             padding: 20px;
             border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             transition: all 0.5s ease;
         }
         footer {
             text-align: center;
             margin-top: 20px;
             font-size: 0.9em;
-        }
-        a:link {
-            text-decoration: none;
-            padding: 1px;
-        }
-        a:hover {
-            background-color: orange;
-            font-size: 125%;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
-            transition: all 0.3s ease;
         }
         a:visited {
             background-color: gray;
@@ -71,9 +69,11 @@
 </header>
 
 <nav>
+    <a href="index.html">Home</a>
     <a href="Overview.html">Overview</a>
     <a href="donate.html">Donations</a>
     <a href="Contact.html">Contact</a>
+    <a href="signup.html">Sign Up</a>
 </nav>
 
 <section id="imagesec">
