@@ -1,67 +1,121 @@
-
-if (document.getElementById('signupForm')) {
-    document.getElementById('signupForm').addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        
-        document.querySelectorAll('.error').forEach(el => el.textContent = '');
-
-        
-        const firstName = document.getElementById('firstName').value.trim();
-        const lastName = document.getElementById('lastName').value.trim();
-        const sex = document.querySelector('input[name="sex"]:checked');
-        const email = document.getElementById('email').value.trim();
-        const password = document.getElementById('password').value.trim();
-        const contact = document.getElementById('contact').value.trim();
-        const supportReason = document.getElementById('supportReason').value.trim();
-
-        let valid = true;
-
-        
-        if (!firstName) {
-            document.getElementById('firstNameError').textContent = 'required';
-            valid = false;
-        }
-        if (!lastName) {
-            document.getElementById('lastNameError').textContent = 'required';
-            valid = false;
-        }
-        if (!sex) {
-            document.getElementById('sexError').textContent = 'required';
-            valid = false;
-        }
-        if (!email) {
-            document.getElementById('emailError').textContent = 'required';
-            valid = false;
-        }
-        if (!password) {
-            document.getElementById('passwordError').textContent = 'required';
-            valid = false;
-        }
-        if (!supportReason) {
-            document.getElementById('supportReasonError').textContent = 'required';
-            valid = false;
-        }
-
-        if (!valid) return;
-
-        
-        localStorage.setItem('firstName', firstName);
-        localStorage.setItem('lastName', lastName);
-        localStorage.setItem('sex', sex ? sex.value : '');
-        localStorage.setItem('email', email);
-        localStorage.setItem('supportReason', supportReason);
-
-        
-        window.location.href = proj_profile_lastname.html;
-    });
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #f9fafc 0%, #e0f7fa 100%);
+  margin: 0;
+  padding: 0;
+  color: #222;
 }
 
+header {
+  background-color: #fffde7;
+  padding: 24px 0 12px 0;
+  text-align: center;
+  border-bottom: 2px solid #fbc02d;
+}
 
-if (document.getElementById('profileFirstName')) {
-    document.getElementById('profileFirstName').textContent = localStorage.getItem('firstName') || '';
-    document.getElementById('profileLastName').textContent = localStorage.getItem('lastName') || '';
-    document.getElementById('profileEmail').textContent = localStorage.getItem('email') || '';
-    document.getElementById('profileSex').textContent = localStorage.getItem('sex') || '';
-    document.getElementById('profileSupportReason').textContent = localStorage.getItem('supportReason') || '';
+.logo {
+  width: 60px;
+  vertical-align: middle;
+  margin-right: 12px;
+}
+
+h1 {
+  margin: 0.2em 0 0.1em 0;
+  color: #fbc02d;
+  font-size: 2.2em;
+}
+
+.tagline {
+  font-size: 1.2em;
+  color: #616161;
+  margin-bottom: 0.6em;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 80vh;
+}
+
+.signup-section, .profile-section {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  padding: 32px 32px 24px 32px;
+  margin-top: 32px;
+  width: 100%;
+  max-width: 450px;
+}
+
+.signup-section h2, .profile-section h2 {
+  margin-top: 0;
+  color: #388e3c;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  width: 100%;
+  padding: 8px;
+  font-size: 1em;
+  border: 1px solid #bdbdbd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 2px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.required {
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+.error {
+  color: #d32f2f;
+  font-size: 0.9em;
+  margin-left: 6px;
+}
+
+button[type="submit"], .back-link {
+  background: #fbc02d;
+  color: #222;
+  font-size: 1.1em;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 12px;
+  transition: background 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+button[type="submit"]:hover, .back-link:hover {
+  background: #ffd54f;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 12px;
 }
